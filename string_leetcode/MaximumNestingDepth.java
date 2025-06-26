@@ -22,7 +22,9 @@ public class MaximumNestingDepth {
     public static void main(String[] args) {
         // int res = maxDepth("()(())((()()))");
         // int res = maxDepth("(1)+((2))+(((3)))");
-        int res = maxDepth("(1+(2*3)+((8)/4))+1");
+        // int res = maxDepth("(1+(2*3)+((8)/4))+1");
+        int res = maxDepth("(1+(2*3)+((8+(5))/4))+1");
+
         System.out.println("RESULT: " + res);
     }
 }
