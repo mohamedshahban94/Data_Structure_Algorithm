@@ -26,31 +26,49 @@ public class Test {
     // }
 
     // non -static block
-    {
-        a = 11;
-        System.out.println("non -static block " + a);
-    }
+    // {
+    //     a = 11;
+    //     System.out.println("non -static block " + a);
+    // }
 
     // constructor
-    public Test(int i) {
-        this.a = i;
-        System.out.println("Constructor initial" + a);
-    }
+    // public Test(int i) {
+    //     this.a = i;
+    //     System.out.println("Constructor initial" + a);
+    // }
 
-    void valueInitialize(int i) {
-        a = i;
-    }
+    // void valueInitialize(int i) {
+    //     a = i;
+    // }
 
+    public static int binarySearch(int arr[], int low,int high, int k){
+
+        if (low > high) {
+            return -1;
+        }
+        int mid  = (low + high )/2;
+        if (arr[mid] == k) {
+            return mid;
+        }
+        else if(arr[mid] > k){
+            return binarySearch(arr, low, mid-1, k);
+        }
+        else{
+            return binarySearch(arr, mid +1, high, k);
+        }
+    }
     public static void main(String[] args) {
-        System.out.println("hhi");
+        // System.out.println("hhi");
 
+        int out = binarySearch(new int[] {1,2,3,4,5,6}, 0, 6, 5);
+        System.out.println(out);
         // Collection<Integer> cl =new ArrayList<>();
         // cl.add(10);
         // System.out.println(cl);
-        Set<Integer> set = new HashSet<>();
-        set.add(10);
-        set.add(30);
-        set.add(50);
+        // Set<Integer> set = new HashSet<>();
+        // set.add(10);
+        // set.add(30);
+        // set.add(50);
         // System.out.println(set);
         // for(Integer num:set){
         // System.out.println(num);
@@ -77,9 +95,9 @@ public class Test {
 
         // System.out.println(obj.a);
 
-        Scanner scan = new Scanner(System.in);
-        char ch = scan.next().charAt(0);
-        System.out.println(ch);
+        // Scanner scan = new Scanner(System.in);
+        // char ch = scan.next().charAt(0);
+        // System.out.println(ch);
     }
 
 }
