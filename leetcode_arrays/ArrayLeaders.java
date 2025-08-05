@@ -44,7 +44,7 @@ public class ArrayLeaders {
     public static void main(String[] args) {
 
         int arr[] = { 16, 17, 4, 3, 5, 2 };
-        // bruteforceArrayLeaders(arr);
-        optimalArrayLeaders(arr);
+        bruteforceArrayLeaders(arr);
+        // optimalArrayLeaders(arr);
     }
 }

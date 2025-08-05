@@ -6,10 +6,12 @@ public class CheckArrSort {
 
     static void checkArraySortedOrNot(int nums[]) {
 
-        int cNum[] = new int[nums.length];
-        for (int i = 0; i < nums.length; i++) {
-            cNum[i] = nums[i];
-        }
+        // int cNum[] = new int[nums.length];
+        // for (int i = 0; i < nums.length; i++) {
+        //     cNum[i] = nums[i];
+        // }
+        int[] cNum = Arrays.copyOf(nums,nums.length);//short cut way to copy
+
         System.out.println(Arrays.toString(nums) + " " + Arrays.toString(cNum));
         int x = nums.length;
         boolean flag = false;
