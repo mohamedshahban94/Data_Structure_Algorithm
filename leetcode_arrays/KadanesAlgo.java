@@ -49,8 +49,8 @@ public class KadanesAlgo {
 
     public static void main(String[] args) {
         int arr[] = { -2, -4, -1 }; // 2, 3, -8, 7, -1, 2, 3 // 5, 4, 1, 7, 8 //-2, -4
-        // bruteforceKadaneAlgo(arr);
-        optimalKadanesAlgo(arr);
+        bruteforceKadaneAlgo(arr);
+        // optimalKadanesAlgo(arr);
     }
 
 }

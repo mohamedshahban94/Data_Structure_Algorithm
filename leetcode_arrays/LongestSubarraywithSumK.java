@@ -1,6 +1,7 @@
 package leetcode_arrays;
 
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class LongestSubarraywithSumK {
@@ -20,25 +21,25 @@ public class LongestSubarraywithSumK {
     }
 
     static void optimalLongestSubArraywithSumk(int[] arr, int k) {
-        
-        int len =0;
-        int left =0;    //i
-        int right = 0;  //j
-        int sum =arr[0];
 
-        while (right<arr.length) {
-            
+        int len = 0;
+        int left = 0; // i
+        int right = 0; // j
+        int sum = arr[0];
+
+        while (right < arr.length) {
+
             // moving left (i) if sum>k
-            while (sum>k && left<=right) {
-                sum = sum-arr[left];
+            while (sum > k && left <= right) {
+                sum = sum - arr[left];
                 left++;
             }
             // sum==k
-            if(sum ==k){
-                len = Math.max(len,(right-left+1));
+            if (sum == k) {
+                len = Math.max(len, (right - left + 1));
             }
             right++;
-            if(right<arr.length){
+            if (right < arr.length) {
                 sum = sum + arr[right];
             }
         }
@@ -46,7 +47,7 @@ public class LongestSubarraywithSumK {
     }
 
     static void optimalWithNegativeValues(int[] arr, int k) {
-        HashMap<Integer, Integer> map = new HashMap<>();
+        Map<Integer, Integer> map = new LinkedHashMap();
         int sum = 0;
         int maxLen = 0;
 
@@ -68,18 +69,23 @@ public class LongestSubarraywithSumK {
 
         System.out.println(maxLen);
         for (Map.Entry<Integer, Integer> mp : map.entrySet()) {
-            // System.out.println(mp.getKey() + " : " + mp.getValue());
+            System.out.println(mp.getKey() + " : " + mp.getValue());
         }
     }
+
     public static void main(String[] args) {
-        // int arr[] = { 10, 5, 2, 7, 1, -10 };           //---|
-        // int k = 15;                                    //---|___ diff inputs
-        int arr[] = { -5, 8, -14, 2, 4, 12 };          //---|    
-        int k = -5;                                    //---|
+        // int arr[] = { 10, 5, 2, 7, 1, -10 }; //---|
+        // int k = 15; //---|___ diff inputs
+        int arr[] = { -5, 5, -5, 2, 4, 2 }; // ---|
+        int k = 2; // ---|
         // int arr[]={10, -10, 20, 30};
         // int k=5;
-        // bruteforceLongestSubarraywithSumK(arr, k); // if works but time complexity O(N^2)
-        // optimalLongestSubArraywithSumk(arr,k); //it works only for +ve numbers (sliding window technique) O(N)
-        optimalWithNegativeValues(arr, k); // it works fine for both +ve & -ve numbers (HashMap) O(N Log N)
+        // bruteforceLongestSubarraywithSumK(arr, k); // if works but time complexity
+        // O(N^2)
+        // optimalLongestSubArraywithSumk(arr,k); //it works only for +ve numbers
+        // (sliding window technique) O(N)
+        // optimalWithNegativeValues(arr, k); // it works fine for both +ve & -ve numbers (HashMap) O(N Log N)
+
+    
     }
 }

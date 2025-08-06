@@ -24,6 +24,7 @@ public class CountPrefixSuffixPairs {
                         String suf = s2.substring(s2len - s1len, s2len);
                         if (s1.equals(pre) && s1.equals(suf)) {
                             count++;
+                            System.out.println(pre + " : " + suf);
                         }
                     }
                 }
