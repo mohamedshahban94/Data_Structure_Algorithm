@@ -1,3 +1,5 @@
+import java.util.List;
+import java.util.Stack;
 
 public class ValidParanthesis {
 
@@ -39,6 +41,33 @@ public class ValidParanthesis {
     public static void main(String[] args) {
         // System.out.println(checkValidParanthesis("(()(())"));
 
-        System.out.println(removeOuterMostParenthesis("(()(()))"));// (())(()())
+        // System.out.println(removeOuterMostParenthesis("(()(()))"));// (())(()())
+
+        boolean valid = validParanthesis("({})");
+        System.out.println(valid);
+
+        // System.out.println((int)'{');
+        // System.out.println((int)'}');
+
+    }
+
+    private static boolean validParanthesis(String s) {
+        List<Character> stack = new Stack<Character>();
+
+        for (char ch : s.toCharArray()) {
+
+            if (ch == '(' || ch == '{' || ch == '[') {
+                stack.add(ch);
+            } else {
+                if (stack.isEmpty())
+                    return false;
+                char ch2 = stack.remove(stack.size() - 1);
+                int chval = (int) ch;
+                System.out.println("Ch :" + ch + "ch2 :" + ch2 + " chval:  " + chval);
+                if ((chval != 41 && ch2 == '(') || (chval != 125 && ch2 == '{') || (chval != 93 && ch2 == '[')) //if ((c == ')' && open != '(') || (c == '}' && open != '{') || (c == ']' && open != '[')) 
+                    return false;
+            }
+        }
+        return (stack.isEmpty() ? true : false);
     }
 }
